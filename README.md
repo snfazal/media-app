@@ -49,6 +49,8 @@ last_updated: Date
 ```
 id: Number,
 name: String,
+url: String,
+
 ```
 
 #### Note
