@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authorize, except: [:login, :create]
 
   def create
+    puts user_params
     user = User.new(user_params)
 
     if user.save
@@ -42,6 +43,7 @@ class UsersController < ApplicationController
         id: id,
         email: email
     }
+  }
   end
 
   def user_params
