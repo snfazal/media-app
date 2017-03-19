@@ -17,6 +17,7 @@ class MediaController < ApplicationController
   end
 
   def index
+    puts Media.all
    render json: { status: 200, media: Media.all }
   end
 

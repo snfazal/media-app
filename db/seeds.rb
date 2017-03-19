@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Media.destroy_all
+
+user1 = User.create!(username: 's', email: 's@s.com', password: 's')
+
+user1.media.create!([{
+  name: "Mean Stack Tutorial",
+  linkable_type: "https://www.youtube.com/watch?v=BRIinAB8qeE&feature=youtu.be"
+  }])

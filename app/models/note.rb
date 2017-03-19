@@ -1,3 +1,3 @@
 class Note < ApplicationRecord
-  has_many :links, as: :linkable
+  has_many :media, as: :linkable
 end
