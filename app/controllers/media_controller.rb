@@ -3,7 +3,7 @@ class MediaController < ApplicationController
 
   def create
     puts media_params
-    media = current_user.media.new(media_params)
+    media = Media.new(media_params)
     puts media
     if media.save
       render json: { status: 201, media: media}
