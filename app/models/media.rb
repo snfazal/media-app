@@ -1,3 +1,4 @@
 class Media < ApplicationRecord
-  belongs_to :linkable, polymorphic: true
+  belongs_to :user
+  has_one :note
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321023814) do
+ActiveRecord::Schema.define(version: 20170321044654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,18 +18,20 @@ ActiveRecord::Schema.define(version: 20170321023814) do
   create_table "media", force: :cascade do |t|
     t.string   "name"
     t.string   "linkable_type"
-    t.integer  "linkable_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "link"
     t.string   "image_url"
-    t.index ["linkable_type", "linkable_id"], name: "index_media_on_linkable_type_and_linkable_id", using: :btree
+    t.integer  "users_id"
+    t.index ["users_id"], name: "index_media_on_users_id", using: :btree
   end
 
   create_table "notes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "media_id"
+    t.index ["media_id"], name: "index_notes_on_media_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +42,6 @@ ActiveRecord::Schema.define(version: 20170321023814) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "media", "users", column: "users_id"
+  add_foreign_key "notes", "media", column: "media_id"
 end

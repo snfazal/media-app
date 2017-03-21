@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :medias, as: :linkable
+  has_many :medias
 
-  has_many :notes, dependent: :destroy
+  has_many :notes, through: :media
   has_secure_password
 end

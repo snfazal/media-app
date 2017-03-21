@@ -1,5 +1,5 @@
 class MediaController < ApplicationController
-  before_action :authorize_media, only: [:update, :delete]
+  # before_action :authorize_media, only: [:update, :delete]
 
   def create
     puts media_params
@@ -39,6 +39,6 @@ class MediaController < ApplicationController
 
 
   def media_params
-    params.required(:media).permit( :name, :linkable_type, :linkable_id)
+    params.required(:media).permit( :name, :link, :image_url, :users_id)
   end
 end

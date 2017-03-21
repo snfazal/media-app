@@ -10,7 +10,8 @@ Media.destroy_all
 
 user1 = User.create!(username: 's', email: 's@s.com', password: 's')
 
-user1.medias.create!([{
+user1.media.create!([{
   name: "Mean Stack Tutorial",
-  linkable_type: "https://www.youtube.com/watch?v=BRIinAB8qeE&feature=youtu.be"
+  link: "https://www.youtube.com/watch?v=BRIinAB8qeE&feature=youtu.be",
+  image_url: ""
 }])
